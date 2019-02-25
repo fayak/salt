@@ -65,7 +65,7 @@ def version(context=None):
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()[0]
     outstr = salt.utils.stringutils.to_str(stdout)
     try:
-        ret = int(outstr.splitlines()[0].split()[-1])
+        ret = int(outstr.splitlines()[0].split()[1])
     except (IndexError, ValueError):
         log.error(
             'Unable to determine systemd version from systemctl '
